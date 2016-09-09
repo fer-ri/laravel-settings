@@ -5,24 +5,24 @@ Laravel 5 persistent settings in database package
 ## Installation
 
 ```
-    composer require ferri/laravel-settings
+composer require ferri/laravel-settings
 ```
 
 And add service provider to you `config/app.php`
 
 ```
-    ...
+...
 
-    Ferri\LaravelSettings\ServiceProvider::class,
-    
-    ...
+Ferri\LaravelSettings\ServiceProvider::class,
+
+...
 ```
 
 Publish config and migration
 
 ```
-    php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --tag=config
-    php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --tag=migrations
+php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --tag=config
+php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --tag=migrations
 ```
 
 ## Usage
@@ -30,44 +30,44 @@ Publish config and migration
 ### Set value
 Set setting value
 ```php
-    Settings::set('key', 'value');
-    Settings::set('keyArray', ['arrayKey' => 'arrayValue']);
+Settings::set('key', 'value');
+Settings::set('keyArray', ['arrayKey' => 'arrayValue']);
 ```
 
 ### Get value
 Get setting value
 ```php
-    Settings::get('key'); // value
-    Settings::get('keyArray'); // ['arrayKey' => 'arrayValue']
-    Settings::get('keyNotExists', 'default'); // default
+Settings::get('key'); // value
+Settings::get('keyArray'); // ['arrayKey' => 'arrayValue']
+Settings::get('keyNotExists', 'default'); // default
 ```
 
 ### Check value
 Determine if setting exists.
 ```php
-    Settings::has('key'); // true
-    Settings::has('keyNotExists'); // false
+Settings::has('key'); // true
+Settings::has('keyNotExists'); // false
 ```
 
 ### Forget value
 Remove setting from database and cache if enabled
 ```php
-    Settings::forget('key');
+Settings::forget('key');
 ```
 
 ### Flush settings
 Remove all setting from database (truncate) and cache if enabled
 ```php
-    Settings::truncate();
+Settings::truncate();
 ```
 
 ### Set Extra Columns
 Sometime you want to specify some criteria for each your setting. This columns will be added to each query.
 Extra columns always resetted after call of one these methods `set`, `get`, `has`, `forget`.
 ```php
-    Settings::setExtraColumns(['tenant_id' => 1])->set('site_title', 'Awesome Blog');
-    Settings::setExtraColumns(['tenant_id' => 1])->get('site_title'); // Awesome Blog
-    Settings::setExtraColumns(['tenant_id' => 2])->get('site_title'); // null
+Settings::setExtraColumns(['tenant_id' => 1])->set('site_title', 'Awesome Blog');
+Settings::setExtraColumns(['tenant_id' => 1])->get('site_title'); // Awesome Blog
+Settings::setExtraColumns(['tenant_id' => 2])->get('site_title'); // null
 ```
 
 ## Helpers
@@ -75,37 +75,37 @@ Extra columns always resetted after call of one these methods `set`, `get`, `has
 ### Settings Instance
 Resolve settings service instance.
 ```php
-    settings();
+settings();
 ```
 
 ### Set value
 Set setting value
 ```php
-    settings([$key => $value]);
+settings([$key => $value]);
 ```
 
 Set setting value with extra columns
 ```php
-    settings([$key => $value], null, ['tenant_id' => 1])
+settings([$key => $value], null, ['tenant_id' => 1])
 ```
 
 ### Get value
 Get setting value
 ```php
-    settings('key'); // value
+settings('key'); // value
 ```
 
 Get setting value with extra columns
 ```php
-    settings($key, $default, ['tenant_id' => 1])
+settings($key, $default, ['tenant_id' => 1])
 ```
 
 ## Testing
 
 ```
-    
-    composer install
-    vendor/bin/phpunit
+
+composer install
+vendor/bin/phpunit
 
 ```
 
