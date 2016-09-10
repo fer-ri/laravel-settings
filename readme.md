@@ -31,6 +31,14 @@ php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --
 php artisan vendor:publish --provider="Ferri\LaravelSettings\ServiceProvider" --tag=migrations
 ```
 
+## Cache
+
+You can disable cache when get setting value. Default is `true`. Cache is inherit from active driver in `config/cache.php`
+
+```php
+'cache' => false,
+```
+
 ## Usage
 
 ### Set value
