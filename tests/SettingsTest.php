@@ -52,7 +52,7 @@ class DatabaseSettingStoreTest extends PHPUnit_Framework_TestCase
         $this->settings->set('key', 'value');
 
         $this->assertEquals('value', $this->settings->get('key'));
-        
+
         $this->settings->set('key', 'value2');
 
         $this->assertEquals('value2', $this->settings->get('key'));
@@ -109,9 +109,9 @@ class DatabaseSettingStoreTest extends PHPUnit_Framework_TestCase
         $cache = $this->mockCache();
 
         $this->settings->enableCache();
-        
+
         $this->settings->setCache($cache);
-        
+
         $cache->shouldReceive('forget')->once();
 
         $this->settings->set('key', 'value');
@@ -126,9 +126,9 @@ class DatabaseSettingStoreTest extends PHPUnit_Framework_TestCase
         $cache = $this->mockCache();
 
         $this->settings->disableCache();
-        
+
         $this->settings->setCache($cache);
-        
+
         $this->settings->set('key', 'value');
 
         $cache->shouldReceive('rememberForever')->never();
@@ -195,23 +195,23 @@ class DatabaseSettingStoreTest extends PHPUnit_Framework_TestCase
         $capsule = new Capsule;
 
         $capsule->addConnection([
-            'driver'   => 'sqlite',
-            'host'     => 'localhost',
+            'driver' => 'sqlite',
+            'host' => 'localhost',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
 
         $capsule->setAsGlobal();
 
         $capsule->bootEloquent();
-        
+
         Capsule::schema()->create('settings', function ($table) {
             $table->increments('id');
             $table->unsignedInteger('tenant_id')->nullable();
             $table->string('key')->index();
             $table->text('value')->nullable();
         });
-        
+
         return $capsule->getDatabaseManager();
     }
 

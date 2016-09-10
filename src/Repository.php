@@ -31,7 +31,7 @@ class Repository
      * Create new database repository.
      *
      * @param \Illuminate\Database\DatabaseManager $db
-     * @param string $table
+     * @param string                               $table
      */
     public function __construct(DatabaseManager $db, $table)
     {
@@ -42,7 +42,7 @@ class Repository
     /**
      * Determine if the given setting value exists.
      *
-     * @param string $key
+     * @param  string $key
      * @return bool
      */
     public function has($key)
@@ -53,8 +53,8 @@ class Repository
     /**
      * Get the specified setting value.
      *
-     * @param string $key
-     * @param mixed $default
+     * @param  string $key
+     * @param  mixed  $default
      * @return mixed
      */
     public function get($key)
@@ -65,8 +65,8 @@ class Repository
     /**
      * Set a given setting value.
      *
-     * @param string $key
-     * @param mixed $value
+     * @param  string $key
+     * @param  mixed  $value
      * @return void
      */
     public function set($key, $value = null)
@@ -83,9 +83,9 @@ class Repository
             $this->table()->where($keys)->update(['value' => $value]);
         }
     }
-    
+
     /**
-     * Get all settings
+     * Get all settings.
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -93,11 +93,11 @@ class Repository
     {
         return $this->tableSelect()->get();
     }
-    
+
     /**
      * Forget current setting value.
      *
-     * @param string $key
+     * @param  string $key
      * @return void
      */
     public function forget($key)
@@ -118,7 +118,7 @@ class Repository
     /**
      * Set extra columns to be added to the rows.
      *
-     * @param array $columns
+     * @param  array $columns
      * @return $this
      */
     public function setExtraColumns(array $columns)

@@ -28,11 +28,10 @@ class Settings
     protected $extraColumns = [];
 
     /**
-     * New instance of Settings
+     * New instance of Settings.
      *
      * @param \Ferri\LaravelSettings\Repository $repository
-     * @param string                         $table
-     * @return void
+     * @param string                            $table
      */
     public function __construct(Repository $repository)
     {
@@ -43,7 +42,6 @@ class Settings
      * Set cache store.
      *
      * @param \Illuminate\Contracts\Cache\Repository $cache
-     * @return void
      */
     public function setCache(Cache $cache)
     {
@@ -62,17 +60,14 @@ class Settings
 
     /**
      * Enable cache.
-     *
-     * @return void
      */
     public function enableCache()
     {
         $this->cacheEnabled = true;
     }
+
     /**
      * Disable cache.
-     *
-     * @return void
      */
     public function disableCache()
     {
@@ -83,6 +78,7 @@ class Settings
      * Set extra columns to be added to the rows.
      *
      * @param array $columns
+     *
      * @return $this
      */
     public function setExtraColumns(array $columns)
@@ -98,18 +94,19 @@ class Settings
      * Set extra columns to be added to the rows.
      *
      * @param array $columns
+     *
      * @return $this
      */
     public function getExtraColumns()
     {
         return $this->extraColumns;
     }
-    
+
     /**
      * Get a specific key from the settings data.
      *
-     * @param  string|array $key
-     * @param  mixed        $default Optional default value.
+     * @param string|array $key
+     * @param mixed        $default Optional default value
      *
      * @return mixed
      */
@@ -131,9 +128,9 @@ class Settings
     /**
      * Determine if a key exists in the settings data.
      *
-     * @param  string  $key
+     * @param string $key
      *
-     * @return boolean
+     * @return bool
      */
     public function has($key)
     {
@@ -164,8 +161,7 @@ class Settings
     /**
      * Unset a key in the settings data.
      *
-     * @param  string $key
-     * @return void
+     * @param string $key
      */
     public function forget($key)
     {
@@ -180,8 +176,6 @@ class Settings
 
     /**
      * Remove all settings data and truncate table.
-     *
-     * @return void
      */
     public function flush()
     {
@@ -197,19 +191,20 @@ class Settings
     }
 
     /**
-     * Check if cache should be enabled or not
+     * Check if cache should be enabled or not.
      *
-     * @return boolean
+     * @return bool
      */
     protected function isCacheEnabled()
     {
-        return $this->cacheEnabled && !is_null($this->cache) ? true : false;
+        return $this->cacheEnabled && ! is_null($this->cache) ? true : false;
     }
 
     /**
-     * Generate cache key for a given key
+     * Generate cache key for a given key.
      *
      * @param string $key
+     *
      * @return string
      */
     protected function getCacheKey($key)
