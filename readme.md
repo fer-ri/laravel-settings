@@ -1,6 +1,12 @@
 # Laravel Settings
 
+[![Build Status](https://travis-ci.org/ghprod/laravel-settings.svg?branch=master)](https://travis-ci.org/ghprod/laravel-settings)
+[![Total Downloads](https://poser.pugx.org/ferri/laravel-settings/d/total.svg)](https://packagist.org/packages/ferri/laravel-settings)
+[![License](https://poser.pugx.org/ferri/laravel-settings/license.svg)](https://packagist.org/packages/ferri/laravel-settings)
+
 Laravel 5 persistent settings in database package
+
+Support Laravel 5.1, 5.2, 5.3
 
 ## Installation
 
