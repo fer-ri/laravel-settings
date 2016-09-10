@@ -1,6 +1,7 @@
 # Laravel Settings
 
 [![Build Status](https://travis-ci.org/ghprod/laravel-settings.svg?branch=master)](https://travis-ci.org/ghprod/laravel-settings)
+[![StyleCI](https://styleci.io/repos/67820519/shield)](https://styleci.io/repos/67820519)
 [![Total Downloads](https://poser.pugx.org/ferri/laravel-settings/d/total.svg)](https://packagist.org/packages/ferri/laravel-settings)
 [![License](https://poser.pugx.org/ferri/laravel-settings/license.svg)](https://packagist.org/packages/ferri/laravel-settings)
 

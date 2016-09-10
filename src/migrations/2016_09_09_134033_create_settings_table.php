@@ -18,6 +18,7 @@ class CreateSettingsTable extends Migration
             $table->text('value')->nullable();
         });
     }
+
     /**
      * Reverse the migrations.
      *

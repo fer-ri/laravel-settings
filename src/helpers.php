@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists('settings')) {
+if (! function_exists('settings')) {
     function settings($key, $default = null, $extraColumns = [])
     {
         $settings = app('settings');
@@ -9,7 +9,7 @@ if ( ! function_exists('settings')) {
             return $settings;
         }
 
-        if ( ! empty($extraColumns) && is_array($extraColumns)) {
+        if (! empty($extraColumns) && is_array($extraColumns)) {
             $settings->setExtraColumns($extraColumns);
         }
 
